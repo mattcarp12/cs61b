@@ -116,9 +116,13 @@ public class LinkedListDeque<T> {
      * @return
      */
     public T removeFirst() {
+        if (this.isEmpty()) {
+            return null;
+        }
         T temp = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
+        size -= 1;
         return temp;
     }
 
@@ -128,9 +132,13 @@ public class LinkedListDeque<T> {
      * @return
      */
     public T removeLast() {
+        if (this.isEmpty()) {
+            return null;
+        }
         T temp = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
+        size -= 1;
         return temp;
     }
 
