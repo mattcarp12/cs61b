@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+
 
 /**
  * @param <T>, specify the data type of linked list
@@ -40,7 +40,7 @@ public class LinkedListDeque<T> {
      * Constructor to create a deep copy of the supplied LinkedListDeque.
      * @param other, a LinkedListDeque to copy
      */
-    public LinkedListDeque(@NotNull LinkedListDeque other) {
+    public LinkedListDeque(LinkedListDeque other) {
 
         LinkedListDeque<T> temp1 = new LinkedListDeque<T>();
         LinkedListDeque<T> temp2 = new LinkedListDeque<T>();
@@ -85,7 +85,7 @@ public class LinkedListDeque<T> {
      * @return
      */
     public boolean isEmpty() {
-        return sentinel.next == null;
+        return sentinel.next == sentinel;
     }
 
     /**
@@ -151,6 +151,16 @@ public class LinkedListDeque<T> {
         return temp.sentinel.next.item;
     }
 
+    public T getRecursive(int index) {
+        if (index > size - 1) {System.out.println("Index larger than size of list!");}
+        if (index == 0) {return sentinel.next.item;}
+        LinkedListDeque<T> temp = new LinkedListDeque<T>();
+        temp.sentinel.next = sentinel.next.next;
+        temp.sentinel.prev = sentinel.prev;
+        temp.size = size - 1;
+        return temp.getRecursive(index - 1);
+    }
+
 
     public static void main(String args[]) {
         LinkedListDeque<String> d1 = new LinkedListDeque<>();
@@ -161,7 +171,12 @@ public class LinkedListDeque<T> {
         d1.printDeque();
         System.out.println(d1.get(0));
         System.out.println(d1.get(2));
-        LinkedListDeque d2 = new LinkedListDeque(d1);
+        System.out.println(d1.getRecursive(0));
+        System.out.println(d1.getRecursive(3));
+        d1.removeFirst();
+        d1.printDeque();
+        d1.removeLast();
+        d1.printDeque();
     }
 }
 
