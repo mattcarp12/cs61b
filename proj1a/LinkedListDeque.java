@@ -10,11 +10,11 @@ public class LinkedListDeque<T> {
      * Node class. Each element of the Deque is an instance of a Node.
      */
     private class Node {
-        public Node prev;
-        public T item;
-        public Node next;
+        private Node prev;
+        private T item;
+        private Node next;
 
-        public Node (Node p, T i, Node n) {
+        Node(Node p, T i, Node n) {
             prev = p;
             item = i;
             next = n;
@@ -160,8 +160,12 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
-        if (index > size - 1) {System.out.println("Index larger than size of list!");}
-        if (index == 0) {return sentinel.next.item;}
+        if (index > size - 1) {
+            System.out.println("Index larger than size of list!");
+        }
+        if (index == 0) {
+            return sentinel.next.item;
+        }
         LinkedListDeque<T> temp = new LinkedListDeque<T>();
         temp.sentinel.next = sentinel.next.next;
         temp.sentinel.prev = sentinel.prev;

@@ -21,14 +21,18 @@ public class ArrayDeque<T> {
 
     /** Inserts X into the back of the list. */
     public void addLast(T x) {
-        if (size == arr.length) {resize(size * RFACTOR);}
+        if (size == arr.length) {
+            resize(size * RFACTOR);
+        }
         arr[nextLast] = x;
         size += 1;
         nextLast = (nextLast + 1) % arr.length;
     }
 
     public void addFirst(T x) {
-        if (size == arr.length) {resize(size * RFACTOR);}
+        if (size == arr.length) {
+            resize(size * RFACTOR);
+        }
         arr[nextFirst] = x;
         size += 1;
         nextFirst = ((nextFirst - 1) % arr.length + arr.length) % arr.length;
@@ -59,7 +63,7 @@ public class ArrayDeque<T> {
         arr[(nextLast - 1) % arr.length] = null;
         size -= 1;
         nextLast = (nextLast - 1) % arr.length;
-        if ((float)size / arr.length < 0.25) {
+        if ((float) size / arr.length < 0.25) {
             resize(arr.length / 2);
         }
         return temp;
@@ -70,7 +74,7 @@ public class ArrayDeque<T> {
         arr[(nextFirst + 1) % arr.length] = null;
         size -= 1;
         nextFirst = (nextFirst + 1) % arr.length;
-        if ((float)size / arr.length < 0.25) {
+        if ((float) size / arr.length < 0.25) {
             resize(size / 2);
         }
         return temp;
@@ -89,14 +93,14 @@ public class ArrayDeque<T> {
         int end = (nextLast - 1) % arr.length;
         int len = arr.length - start;
         if (start <= end) {
-            System.arraycopy(arr, start, a, capacity/4, size);
-            nextFirst = capacity/4 - 1;
-            nextLast = capacity/4 + size;
+            System.arraycopy(arr, start, a, capacity / 4, size);
+            nextFirst = capacity / 4 - 1;
+            nextLast = capacity / 4 + size;
         } else {
             System.arraycopy(arr, start, a, capacity / 4, len);
             System.arraycopy(arr, 0, a, capacity / 4 + len, end + 1);
-            nextFirst = (capacity/4 - 1) ;
-            nextLast = (capacity/4 + len + end + 1) ;
+            nextFirst = (capacity / 4 - 1);
+            nextLast = (capacity / 4 + len + end + 1);
         }
         arr = a;
 
