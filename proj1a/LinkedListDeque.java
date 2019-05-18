@@ -9,7 +9,7 @@ public class LinkedListDeque<T> {
     /**
      * Node class. Each element of the Deque is an instance of a Node.
      */
-    public class Node {
+    private class Node {
         public Node prev;
         public T item;
         public Node next;
@@ -169,7 +169,7 @@ public class LinkedListDeque<T> {
         return temp.getRecursive(index - 1);
     }
 
-
+/*
     public static void main(String args[]) {
         LinkedListDeque<String> d1 = new LinkedListDeque<>();
         System.out.println(d1.isEmpty());
@@ -186,6 +186,8 @@ public class LinkedListDeque<T> {
         d1.removeLast();
         d1.printDeque();
     }
+
+ */
 }
 
 

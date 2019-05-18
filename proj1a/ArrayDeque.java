@@ -102,6 +102,7 @@ public class ArrayDeque<T> {
 
     }
 
+    /*
     public static void main(String[] args) {
         ArrayDeque<String> d1 = new ArrayDeque();
         System.out.println(d1.isEmpty());
@@ -122,4 +123,6 @@ public class ArrayDeque<T> {
         d1.removeLast();
         d1.printDeque();
     }
+
+     */
 } 
