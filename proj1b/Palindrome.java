@@ -15,7 +15,7 @@ public class Palindrome {
             return true;
         }
         if (dWord.removeFirst() == dWord.removeLast()) {
-             return isPalindrome(dequeToWord(dWord));
+            return isPalindrome(dequeToWord(dWord));
         } else {
             return false;
         }
